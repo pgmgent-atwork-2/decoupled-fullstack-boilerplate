@@ -6,8 +6,8 @@ import express from 'express';
 /*
 Import custom packages
 */
-import * as categoryController from '../controllers/category.controller.js';
-import * as productController from '../controllers/product.controller.js';
+import * as categoryController from '../controllers/category.controller';
+import * as productController from '../controllers/product.controller';
 
 /*
 Make a router

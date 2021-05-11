@@ -77,13 +77,6 @@ const handleGracefully = async () => {
 };
 
 /*
-Handle close
-*/
-const handleClose = async () => {
-	await server.close();
-};
-
-/*
 Shutdown the application
 */
 process.on('SIGINT', () => {

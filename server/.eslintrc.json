@@ -4,7 +4,8 @@
 		"airbnb-base"
 	],
 	"plugins": [
-		"json"
+        "import",
+		"json"     
 	],
 	"env": {
 		"node": true
