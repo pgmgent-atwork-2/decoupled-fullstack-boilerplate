@@ -4,7 +4,8 @@
   "description": "Webshop of the education programme \"Associate Degree in Computer Programming\"",
   "main": "src/app.js",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development HOSTNAME=localhost PORT=8080 nodemon --exec babel-node -e js,html,nj src/app.js --watch src/*"
+    "dev": "cross-env NODE_ENV=development HOSTNAME=localhost PORT=8080 nodemon --exec babel-node -e js,html,nj src/app.js --watch src/*",
+    "lint": "cross-env NODE_ENV=lint eslint . --ext .js --fix"
   },
   "keywords": [
     "node.js",
@@ -27,6 +28,8 @@
     "eslint": "^7.26.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-config-recommended": "^4.1.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-json": "^3.0.0",
     "nodemon": "^2.0.7"
   },
   "dependencies": {

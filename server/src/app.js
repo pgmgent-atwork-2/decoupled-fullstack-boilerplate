@@ -14,6 +14,7 @@ import apiRoutes from './api/routes';
 Database
 */
 import database from './models';
+
 database.sequelize.sync();
 
 /*
@@ -25,10 +26,10 @@ const app = express();
 View Engine
 */
 nunjucks.configure(path.join(__dirname, 'views'), {
-  autoescape: true,
-  express: app,
-  noCache: true,
-  watch: true,
+	autoescape: true,
+	express: app,
+	noCache: true,
+	watch: true,
 });
 app.set('view engine', 'html');
 
@@ -49,45 +50,45 @@ Listen to incoming requests
 */
 let server;
 if (EnvironmentVariables.NODE_ENV !== 'test') {
-  server = app.listen(EnvironmentVariables.PORT, EnvironmentVariables.HOSTNAME, (err) => {
-    if (err) throw err;
-    if (EnvironmentVariables.NODE_ENV === 'development') {
-      console.log(`Server is listening at http://${EnvironmentVariables.HOSTNAME}:${EnvironmentVariables.PORT}!`);
-    }
-  });
+	server = app.listen(EnvironmentVariables.PORT, EnvironmentVariables.HOSTNAME, (err) => {
+		if (err) throw err;
+		if (EnvironmentVariables.NODE_ENV === 'development') {
+			console.log(`Server is listening at http://${EnvironmentVariables.HOSTNAME}:${EnvironmentVariables.PORT}!`);
+		}
+	});
 }
 
 /*
 Handle shutdown gracefully
 */
 const handleGracefully = async () => {
-  try {
-    await server.close(async (err) => {
-      if (err) throw err;
+	try {
+		await server.close(async (err) => {
+			if (err) throw err;
 
-      if (EnvironmentVariables.NODE_ENV === 'development') {
-        console.log('Server is gracefully closed!');
-      }
-      process.exit(0);
-    });
-  } catch (ex) {
-    console.error(ex);
-  }
+			if (EnvironmentVariables.NODE_ENV === 'development') {
+				console.log('Server is gracefully closed!');
+			}
+			process.exit(0);
+		});
+	} catch (ex) {
+		console.error(ex);
+	}
 };
 
 /*
 Handle close
 */
 const handleClose = async () => {
-  await server.close();
+	await server.close();
 };
 
 /*
 Shutdown the application
 */
 process.on('SIGINT', () => {
-  handleGracefully();
+	handleGracefully();
 });
 process.on('SIGTERM', () => {
-  handleGracefully();
+	handleGracefully();
 });

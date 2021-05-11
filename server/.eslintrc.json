@@ -10,8 +10,13 @@
 		"node": true
 	},
 	"rules": {
+        "comma-dangle": [
+            "error", 
+            "always-multiline"
+        ],
 		"import/no-unresolved": 0,
 		"indent": [2, "tab"],
+        "linebreak-style": "off",
 		"max-len": [2, 160, 2, {
 			"ignoreUrls": true,
 			"ignoreComments": true,
@@ -19,8 +24,22 @@
 			"ignoreStrings": true,
 			"ignoreTemplateLiterals": true
 		}],
+        "no-console": "off",
+        "no-plusplus": "off",
+        "no-restricted-syntax": [
+            "error",
+            {
+            "selector": "CallExpression[callee.object.name='console'][callee.property.name!=/^(log|warn|error|info|trace)$/]",
+            "message": "Unexpected property on console object was called"
+            }
+        ],
 		"no-tabs": [0, {
 			"allowIndentationTabs": true
-		}]
+		}],
+        "no-void": "off",
+        "strict": [
+            "error", 
+            "global"
+        ]
 	}
 }
