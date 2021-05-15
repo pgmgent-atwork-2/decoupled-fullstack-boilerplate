@@ -1,5 +1,5 @@
 import { handleHTTPError } from '../../utils';
-import database from '../../models';
+import database from '../../database';
 
 /*
 Get all products

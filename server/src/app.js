@@ -13,9 +13,7 @@ import apiRoutes from './api/routes';
 /*
 Database
 */
-import database from './models';
-
-database.sequelize.sync();
+import database from './database';
 
 /*
 Create Express app

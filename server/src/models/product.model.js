@@ -1,15 +1,23 @@
-module.exports = (sequelize, DataTypes) => {
-	const Product = sequelize.define('product', {
-		name: {
-			type: DataTypes.STRING(255),
-		},
-		description: {
-			type: DataTypes.TEXT,
-		},
-		price: {
-			type: DataTypes.FLOAT,
-		},
-	});
+import { Model, DataTypes } from 'sequelize';
 
-	return Product;
+import Category from './category.model';
+
+export default (sequelize) => {
+  class Product extends Model {
+    static associate(models) {
+      this.belongsTo(models.Category);
+      this.belongsToMany(models.Tag, { through: 'ProductTag' });
+    }
+  }
+
+  Product.init({
+    name: DataTypes.STRING,
+    description: DataTypes.TEXT,
+    price: DataTypes.FLOAT,
+  }, {
+    sequelize,
+    modelName: 'Product',
+  });
+
+  return Product;
 };
