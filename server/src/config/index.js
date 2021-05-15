@@ -1,4 +1,4 @@
-import databaseVariables from './databaseVariables';
+import databaseVariables from './databaseConfig.json';
 import * as EnvironmentVariables from './environmentVariables';
 
 export {
