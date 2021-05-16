@@ -1,9 +1,9 @@
-const convertArrayToPagedObject = (arr, itemsPerPage, currentPage) => ({
+const convertArrayToPagedObject = (arr, itemsPerPage, currentPage, amount) => ({
 	pageing: {
 		itemsPerPage: parseInt(itemsPerPage, 10) || 10,
 		currentPage: parseInt(currentPage, 10) || 1,
-		totalPages: Math.ceil(arr.length / itemsPerPage),
-		totalItems: arr.length,
+		totalPages: Math.ceil(amount / itemsPerPage),
+		totalItems: amount,
 	},
 	results: arr.slice((currentPage - 1) * itemsPerPage, (currentPage - 1) * itemsPerPage + itemsPerPage),
 });

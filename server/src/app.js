@@ -14,7 +14,6 @@ import apiRoutes from './api/routes';
 Database
 */
 import database from './database';
-
 database.connect();
 
 /*
@@ -36,7 +35,7 @@ app.set('view engine', 'html');
 /*
 bodyParser
 */
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 /*

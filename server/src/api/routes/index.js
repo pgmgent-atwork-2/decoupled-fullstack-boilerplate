@@ -20,6 +20,8 @@ Routes
 router.get('/categories', categoryController.getCategories);
 router.get('/categories/:categoryId', categoryController.getCategoryById);
 router.post('/categories', categoryController.createCategory);
+router.put('/categories/:categoryId', categoryController.updateCategory);
+router.delete('/categories/:categoryId', categoryController.deleteCategory);
 
 router.get('/products', productController.getProducts);
 router.get('/products/:productId', productController.getProductById);
