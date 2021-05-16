@@ -1,8 +1,12 @@
+import bodyParser from 'body-parser';
+import chalk from 'chalk';
 import cors from 'cors';
 import express from 'express';
+import helmet from 'helmet';
 import path from 'path';
+import moment  from 'moment';
+import morgan  from 'morgan';
 import nunjucks from 'nunjucks';
-import bodyParser from 'body-parser';
 
 /*
 Custom modules
@@ -37,6 +41,35 @@ bodyParser
 */
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
+/*
+Helmet
+https://helmetjs.github.io/
+*/
+app.use(helmet.hidePoweredBy());
+app.use(helmet.ieNoOpen());
+app.use(helmet.noSniff());
+app.use(helmet.xssFilter());
+
+/*
+Morgan
+https://www.npmjs.com/package/morgan
+*/
+if (EnvironmentVariables.NODE_ENV === 'development') {
+  const morganMiddleware = morgan((tokens, req, res) => {
+    return [
+      chalk.hex('#ffffff').bold(`${moment(tokens.date(req, res)).format('YYYY-MM-DD hh:mm:ss')}`),
+      chalk.hex('#34ace0').bold(`[${tokens.method(req, res)}]`),
+      ':\t',
+      chalk.hex('#ff5252').bold(`[${tokens.url(req, res)}]`),
+      chalk.hex('#f78fb3').bold(`[${tokens.status(req, res)}]`),
+      chalk.hex('#fffff').bold(`${tokens['response-time'](req, res)}ms`),
+      chalk.hex('#fffff').bold(tokens['remote-addr'](req, res)),
+      '',
+    ].join(' ');
+  }); 
+  app.use(morganMiddleware);
+}
 
 /*
 API Routes

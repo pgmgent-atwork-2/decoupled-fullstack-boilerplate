@@ -5,7 +5,10 @@ import { Sequelize } from 'sequelize';
 import { databaseVariables, EnvironmentVariables } from '../config';
 
 const basename = path.basename(__filename);
-const sequelize = new Sequelize(databaseVariables[EnvironmentVariables.NODE_ENV]);
+const sequelize = new Sequelize({
+  ...databaseVariables[EnvironmentVariables.NODE_ENV],
+  logging: (EnvironmentVariables.NODE_ENV === 'development' ? console.log : false)
+});
 const database = {};
 
 database.connect = async () => {
