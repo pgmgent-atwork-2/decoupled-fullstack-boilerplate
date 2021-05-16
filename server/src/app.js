@@ -15,6 +15,8 @@ Database
 */
 import database from './database';
 
+database.connect();
+
 /*
 Create Express app
 */

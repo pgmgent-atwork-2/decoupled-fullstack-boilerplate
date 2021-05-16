@@ -1,21 +1,19 @@
 import { Model, DataTypes } from 'sequelize';
 
-import Product from './product.model';
-
 export default (sequelize) => {
-  class Category extends Model {
-    static associate(models) {
-      this.hasMany(models.Product);
-    }
-  }
+	class Category extends Model {
+		static associate(models) {
+			this.hasMany(models.Product);
+		}
+	}
 
-  Category.init({
-    name: DataTypes.STRING,
-    description: DataTypes.TEXT,
-  }, {
-    sequelize,
-    modelName: 'Category',
-  });
+	Category.init({
+		name: DataTypes.STRING,
+		description: DataTypes.TEXT,
+	}, {
+		sequelize,
+		modelName: 'Category',
+	});
 
-  return Category;
+	return Category;
 };
