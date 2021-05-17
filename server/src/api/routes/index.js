@@ -23,8 +23,29 @@ Routes
  * /api/categories:
  *   get:
  *     summary: Retrieve a list of categories
- *     description: Retrieve a list of categories. Can be used to populate a list of categories when prototyping or testing an API.
-*/
+ *     description: Retrieve a list of categories. Can be used to populate a list of categories when prototyping or testing an API.*    
+ *     responses:
+ *       200:
+ *         description: A list of categories.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 data:
+ *                   type: array
+ *                   items:
+ *                     type: object
+ *                     properties:
+ *                       id:
+ *                         type: integer
+ *                         description: The category ID.
+ *                         example: 1
+ *                       name:
+ *                         type: string
+ *                         description: The categories name.
+ *                         example: Computers
+ */
 router.get('/categories', categoryController.getCategories);
 router.get('/categories/:categoryId', categoryController.getCategoryById);
 /**
