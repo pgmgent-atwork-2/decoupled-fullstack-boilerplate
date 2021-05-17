@@ -7,13 +7,16 @@ export default (sequelize) => {
 		}
 	}
 
-	Category.init({
-		name: DataTypes.STRING,
-		description: DataTypes.TEXT,
-	}, {
-		sequelize,
-		modelName: 'Category',
-	});
+	Category.init(
+		{
+			name: DataTypes.STRING,
+			description: DataTypes.TEXT,
+		},
+		{
+			sequelize,
+			modelName: 'Category',
+		},
+	);
 
 	return Category;
 };
