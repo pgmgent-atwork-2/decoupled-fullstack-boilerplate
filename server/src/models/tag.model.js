@@ -3,8 +3,8 @@ import { Model, DataTypes } from 'sequelize';
 export default (sequelize) => {
 	class Tag extends Model {
 		static associate(models) {
-			this.belongsToMany(models.Product, {
-				through: 'ProductTag',
+			this.belongsToMany(models.Work, {
+				through: 'WorkTag',
 			});
 		}
 	}
