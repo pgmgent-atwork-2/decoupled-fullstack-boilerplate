@@ -17,4 +17,11 @@ const HTTPError = (message, statusCode) => {
 	return instance;
 };
 
-export { convertArrayToPagedObject, handleHTTPError, HTTPError };
+/*
+* Generate Integer between min and max
+*/
+const generateValueBetweenMinAndMax = (min, max) => {
+  return min + Math.round(Math.random()*(max - min));
+}
+
+export { convertArrayToPagedObject, generateValueBetweenMinAndMax, handleHTTPError, HTTPError };

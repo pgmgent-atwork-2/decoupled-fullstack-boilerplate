@@ -19,7 +19,6 @@ import apiRoutes from './api/routes';
 Database
 */
 import database from './database';
-
 database.connect();
 
 /*

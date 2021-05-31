@@ -1,13 +1,13 @@
 import { Model, DataTypes } from 'sequelize';
 
 export default (sequelize) => {
-	class WorkAsset extends Model {
+	class ProjectAsset extends Model {
 		static associate(models) {
-			this.belongsTo(models.Work);
+			this.belongsTo(models.Project);
 		}
 	}
 
-	WorkAsset.init(
+	ProjectAsset.init(
 		{
 			caption: DataTypes.TEXT,
 			type: DataTypes.STRING,
@@ -16,9 +16,9 @@ export default (sequelize) => {
 		},
 		{
 			sequelize,
-			modelName: 'WorkAsset',
+			modelName: 'ProjectAsset',
 		},
 	);
 
-	return WorkAsset;
+	return ProjectAsset;
 };

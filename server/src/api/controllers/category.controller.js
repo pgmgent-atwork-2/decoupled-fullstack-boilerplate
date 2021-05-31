@@ -21,6 +21,10 @@ const getCategories = async (req, res, next) => {
 			categories = await database.Category.findAll();
 		}
 
+    if (!categories || categories.length === 0) {
+      throw new HTTPError(`Could not found categories!`, 404);
+    }
+
 		// Send response
 		res.status(200).json(categories);
 	} catch (error) {

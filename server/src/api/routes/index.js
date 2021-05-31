@@ -7,7 +7,7 @@ import express from 'express';
 Import custom packages
 */
 import * as categoryController from '../controllers/category.controller';
-import * as productController from '../controllers/product.controller';
+import * as projectController from '../controllers/project.controller';
 
 /*
 Make a router
@@ -59,7 +59,7 @@ router.post('/categories', categoryController.createCategory);
 router.put('/categories/:categoryId', categoryController.updateCategory);
 router.delete('/categories/:categoryId', categoryController.deleteCategory);
 
-router.get('/products', productController.getProducts);
-router.get('/products/:productId', productController.getProductById);
+router.get('/projects', projectController.getProjects);
+router.get('/projects/:productId', projectController.getProjectById);
 
 export default router;

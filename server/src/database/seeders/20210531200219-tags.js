@@ -6,29 +6,28 @@ import { generateValueBetweenMinAndMax } from '../../utils';
 import database from '../index';
 database.connect();
 
-const getCategories = (n = 20) => {
-  const categories = [];
+const getTags = (n = 20) => {
+  const tags = [];
   for (let i=0; i < n;i++) {
-    categories.push({
+    tags.push({
       name: faker.lorem.word(),
-      description: faker.lorem.sentence(),
       createdAt: Date.now(),
       updatedAt: Date.now()
     });
   }
-  return categories;
+  return tags;
 };
 
 export default {
 	up: async (queryInterface, Sequelize) => {
 		await queryInterface.bulkInsert(
-			database.Category.tableName,
-			getCategories(15),
+			database.Tag.tableName,
+			getTags(60),
 			{},
 		);
 	},
 
 	down: async (queryInterface, Sequelize) => {
-		await queryInterface.bulkDelete(database.Category.tableName, null, {});
+		await queryInterface.bulkDelete(database.Tag.tableName, null, {});
 	},
 };
