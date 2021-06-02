@@ -70,6 +70,7 @@ jobs:
         shell: "bash"
         run: |
           git fetch --all --unshallow
+          git filter-branch -- --all
           git push heroku HEAD:master
       - name: Deploy to Heroku
         uses: akhileshns/heroku-deploy@v3.12.12
