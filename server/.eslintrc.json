@@ -16,7 +16,7 @@
             "always-multiline"
         ],
 		"import/no-unresolved": 0,
-		"indent": [2, "tab"],
+		"indent": [2, 2],
         "linebreak-style": "off",
 		"max-len": [2, 160, 2, {
 			"ignoreUrls": true,
@@ -34,9 +34,7 @@
             "message": "Unexpected property on console object was called"
             }
         ],
-		"no-tabs": [0, {
-			"allowIndentationTabs": true
-		}],
+		"no-tabs": 0,
         "no-void": "off",
         "strict": [
             "error", 

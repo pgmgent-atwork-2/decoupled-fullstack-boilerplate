@@ -10,5 +10,5 @@ export default {
 
   down: async (queryInterface, Sequelize) => {
     await queryInterface.dropTable(database.ProjectAsset.tableName);
-  }
+  },
 };
