@@ -48,6 +48,28 @@ jobs:
         with:
           name: production-files
           path: ./server/build
+      - name: "Create .netrc for Heroku Auth"
+        shell: bash
+        run: |
+          `cat >~/.netrc <<EOF
+          machine api.heroku.com
+              login $EMAIL
+              password $HEROKU_API_KEY
+          machine git.heroku.com
+              login $EMAIL
+              password $HEROKU_API_KEY
+          EOF`
+        env:
+          EMAIL: philippe.depauw@arteveldehs.be
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+      - name: "Add remote"
+        shell: "bash"
+        run: |
+          heroku git:remote --app the8gency
+      - name: "Push to heroku"
+        shell: "bash"
+        run: |
+          git push heroku HEAD:master
       - name: Deploy to Heroku
         uses: akhileshns/heroku-deploy@v3.12.12
         with:
