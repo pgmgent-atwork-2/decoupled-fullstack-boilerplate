@@ -11,7 +11,7 @@ var _express = _interopRequireDefault(require("express"));
 
 var categoryController = _interopRequireWildcard(require("../controllers/category.controller"));
 
-var productController = _interopRequireWildcard(require("../controllers/product.controller"));
+var projectController = _interopRequireWildcard(require("../controllers/project.controller"));
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
@@ -78,7 +78,7 @@ router.get('/categories/:categoryId', categoryController.getCategoryById);
 router.post('/categories', categoryController.createCategory);
 router.put('/categories/:categoryId', categoryController.updateCategory);
 router["delete"]('/categories/:categoryId', categoryController.deleteCategory);
-router.get('/products', productController.getProducts);
-router.get('/products/:productId', productController.getProductById);
+router.get('/projects', projectController.getProjects);
+router.get('/projects/:productId', projectController.getProjectById);
 var _default = router;
 exports["default"] = _default;

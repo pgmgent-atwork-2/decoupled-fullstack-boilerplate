@@ -8,12 +8,12 @@ database.connect();
 
 const getCategories = (n = 20) => {
   const categories = [];
-  for (let i=0; i < n;i++) {
+  for (let i = 0; i < n; i++) {
     categories.push({
       name: faker.lorem.word(),
       description: faker.lorem.sentence(),
-      createdAt: Date.now(),
-      updatedAt: Date.now()
+      createdAt: new Date(),
+      updatedAt: new Date(),
     });
   }
   return categories;

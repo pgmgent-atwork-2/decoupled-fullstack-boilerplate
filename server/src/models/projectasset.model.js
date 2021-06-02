@@ -3,7 +3,9 @@ import { Model, DataTypes } from 'sequelize';
 export default (sequelize) => {
 	class ProjectAsset extends Model {
 		static associate(models) {
-			this.belongsTo(models.Project);
+			this.belongsTo(models.Project, {
+        as: 'project',
+			});
 		}
 	}
 

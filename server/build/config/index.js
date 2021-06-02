@@ -13,7 +13,7 @@ Object.defineProperty(exports, "databaseConfig", {
 });
 exports.EnvironmentVariables = void 0;
 
-var _databaseConfig = _interopRequireDefault(require("./databaseConfig.json"));
+var _databaseConfig = _interopRequireDefault(require("./databaseConfig"));
 
 var EnvironmentVariables = _interopRequireWildcard(require("./environmentVariables"));
 

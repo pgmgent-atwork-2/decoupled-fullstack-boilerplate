@@ -30,38 +30,35 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 var _default = function _default(sequelize) {
-  var Work = /*#__PURE__*/function (_Model) {
-    _inherits(Work, _Model);
+  var Profile = /*#__PURE__*/function (_Model) {
+    _inherits(Profile, _Model);
 
-    var _super = _createSuper(Work);
+    var _super = _createSuper(Profile);
 
-    function Work() {
-      _classCallCheck(this, Work);
+    function Profile() {
+      _classCallCheck(this, Profile);
 
       return _super.apply(this, arguments);
     }
 
-    _createClass(Work, null, [{
+    _createClass(Profile, null, [{
       key: "associate",
       value: function associate(models) {
-        this.belongsTo(models.Category);
-        this.hasMany(models.WorkAsset, {
-          as: 'assets'
-        });
+        this.hasOne(models.User);
       }
     }]);
 
-    return Work;
+    return Profile;
   }(_sequelize.Model);
 
-  Work.init({
-    title: _sequelize.DataTypes.STRING,
-    description: _sequelize.DataTypes.TEXT
+  Profile.init({
+    firstName: _sequelize.DataTypes.STRING,
+    lastName: _sequelize.DataTypes.STRING
   }, {
     sequelize: sequelize,
-    modelName: 'Work'
+    modelName: 'Profile'
   });
-  return Work;
+  return Profile;
 };
 
 exports["default"] = _default;

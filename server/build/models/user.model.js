@@ -43,7 +43,9 @@ var _default = function _default(sequelize) {
 
     _createClass(User, null, [{
       key: "associate",
-      value: function associate(models) {}
+      value: function associate(models) {
+        this.belongsTo(models.Profile);
+      }
     }]);
 
     return User;

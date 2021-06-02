@@ -17,8 +17,8 @@ const getProjects = async () => {
     return {
       title: project.Title,
       description: project.Description,
-      createdAt: Date.now(),
-      updatedAt: Date.now(),
+      createdAt: new Date(),
+      updatedAt: new Date(),
     }
   });
 };

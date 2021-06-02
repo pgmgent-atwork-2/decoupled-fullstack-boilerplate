@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.HTTPError = exports.handleHTTPError = exports.convertArrayToPagedObject = void 0;
+exports.HTTPError = exports.handleHTTPError = exports.generateValueBetweenMinAndMax = exports.convertArrayToPagedObject = void 0;
 
 var convertArrayToPagedObject = function convertArrayToPagedObject(arr, itemsPerPage, currentPage, amount) {
   return {
@@ -30,5 +30,15 @@ var HTTPError = function HTTPError(message, statusCode) {
   instance.statusCode = statusCode;
   return instance;
 };
+/*
+* Generate Integer between min and max
+*/
+
 
 exports.HTTPError = HTTPError;
+
+var generateValueBetweenMinAndMax = function generateValueBetweenMinAndMax(min, max) {
+  return min + Math.round(Math.random() * (max - min));
+};
+
+exports.generateValueBetweenMinAndMax = generateValueBetweenMinAndMax;

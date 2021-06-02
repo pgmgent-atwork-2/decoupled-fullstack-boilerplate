@@ -19,7 +19,9 @@ import apiRoutes from './api/routes';
 Database
 */
 import database from './database';
-database.connect();
+(async () => {
+  await database.connect();
+})();
 
 /*
 Create Express app

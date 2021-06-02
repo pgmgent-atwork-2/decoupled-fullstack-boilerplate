@@ -11,8 +11,8 @@ const getTags = (n = 20) => {
   for (let i=0; i < n;i++) {
     tags.push({
       name: faker.lorem.word(),
-      createdAt: Date.now(),
-      updatedAt: Date.now()
+      createdAt: new Date(),
+      updatedAt: new Date(),
     });
   }
   return tags;

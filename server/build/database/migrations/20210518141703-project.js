@@ -7,10 +7,6 @@ exports["default"] = void 0;
 
 require("babel-polyfill");
 
-var _faker = _interopRequireDefault(require("faker"));
-
-var _utils = require("../../utils");
-
 var _index = _interopRequireDefault(require("../index"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
@@ -21,22 +17,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 _index["default"].connect();
 
-var getCategories = function getCategories() {
-  var n = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 20;
-  var categories = [];
-
-  for (var i = 0; i < n; i++) {
-    categories.push({
-      name: _faker["default"].lorem.word(),
-      description: _faker["default"].lorem.sentence(),
-      createdAt: Date.now(),
-      updatedAt: Date.now()
-    });
-  }
-
-  return categories;
-};
-
 var _default = {
   up: function () {
     var _up = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(queryInterface, Sequelize) {
@@ -44,10 +24,9 @@ var _default = {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              _context.next = 2;
-              return queryInterface.bulkInsert(_index["default"].Category.tableName, getCategories(15), {});
+              queryInterface.createTable(_index["default"].Project.tableName, _index["default"].Project.attributes);
 
-            case 2:
+            case 1:
             case "end":
               return _context.stop();
           }
@@ -67,10 +46,9 @@ var _default = {
         while (1) {
           switch (_context2.prev = _context2.next) {
             case 0:
-              _context2.next = 2;
-              return queryInterface.bulkDelete(_index["default"].Category.tableName, null, {});
+              queryInterface.dropTable(_index["default"].Project.tableName);
 
-            case 2:
+            case 1:
             case "end":
               return _context2.stop();
           }

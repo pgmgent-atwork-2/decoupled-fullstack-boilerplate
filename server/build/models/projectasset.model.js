@@ -30,37 +30,37 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 var _default = function _default(sequelize) {
-  var WorkAsset = /*#__PURE__*/function (_Model) {
-    _inherits(WorkAsset, _Model);
+  var ProjectAsset = /*#__PURE__*/function (_Model) {
+    _inherits(ProjectAsset, _Model);
 
-    var _super = _createSuper(WorkAsset);
+    var _super = _createSuper(ProjectAsset);
 
-    function WorkAsset() {
-      _classCallCheck(this, WorkAsset);
+    function ProjectAsset() {
+      _classCallCheck(this, ProjectAsset);
 
       return _super.apply(this, arguments);
     }
 
-    _createClass(WorkAsset, null, [{
+    _createClass(ProjectAsset, null, [{
       key: "associate",
       value: function associate(models) {
-        this.belongsTo(models.Work);
+        this.belongsTo(models.Project);
       }
     }]);
 
-    return WorkAsset;
+    return ProjectAsset;
   }(_sequelize.Model);
 
-  WorkAsset.init({
+  ProjectAsset.init({
     caption: _sequelize.DataTypes.TEXT,
     type: _sequelize.DataTypes.STRING,
     reference: _sequelize.DataTypes.STRING,
     order: _sequelize.DataTypes.INTEGER
   }, {
     sequelize: sequelize,
-    modelName: 'WorkAsset'
+    modelName: 'ProjectAsset'
   });
-  return WorkAsset;
+  return ProjectAsset;
 };
 
 exports["default"] = _default;

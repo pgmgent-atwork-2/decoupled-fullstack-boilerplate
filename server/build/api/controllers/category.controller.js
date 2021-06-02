@@ -66,22 +66,30 @@ var getCategories = /*#__PURE__*/function () {
             categories = _context.sent;
 
           case 20:
+            if (!(!categories || categories.length === 0)) {
+              _context.next = 22;
+              break;
+            }
+
+            throw new _utils.HTTPError("Could not found categories!", 404);
+
+          case 22:
             // Send response
             res.status(200).json(categories);
-            _context.next = 26;
+            _context.next = 28;
             break;
 
-          case 23:
-            _context.prev = 23;
+          case 25:
+            _context.prev = 25;
             _context.t5 = _context["catch"](0);
             (0, _utils.handleHTTPError)(_context.t5, next);
 
-          case 26:
+          case 28:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, null, [[0, 23]]);
+    }, _callee, null, [[0, 25]]);
   }));
 
   return function getCategories(_x, _x2, _x3) {

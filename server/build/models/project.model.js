@@ -30,38 +30,42 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 var _default = function _default(sequelize) {
-  var Tag = /*#__PURE__*/function (_Model) {
-    _inherits(Tag, _Model);
+  var Project = /*#__PURE__*/function (_Model) {
+    _inherits(Project, _Model);
 
-    var _super = _createSuper(Tag);
+    var _super = _createSuper(Project);
 
-    function Tag() {
-      _classCallCheck(this, Tag);
+    function Project() {
+      _classCallCheck(this, Project);
 
       return _super.apply(this, arguments);
     }
 
-    _createClass(Tag, null, [{
+    _createClass(Project, null, [{
       key: "associate",
       value: function associate(models) {
-        this.belongsToMany(models.Project, {
+        this.belongsTo(models.Category);
+        this.hasMany(models.ProjectAsset);
+        this.belongsToMany(models.Tag, {
           through: 'ProjectTag',
-          as: 'projects',
-          foreignKey: 'project_id'
+          as: 'tags',
+          foreignKey: 'tag_id'
         });
+        this.belongsTo(models.User);
       }
     }]);
 
-    return Tag;
+    return Project;
   }(_sequelize.Model);
 
-  Tag.init({
-    name: _sequelize.DataTypes.STRING
+  Project.init({
+    title: _sequelize.DataTypes.STRING,
+    description: _sequelize.DataTypes.TEXT
   }, {
     sequelize: sequelize,
-    modelName: 'Tag'
+    modelName: 'Project'
   });
-  return Tag;
+  return Project;
 };
 
 exports["default"] = _default;

@@ -4,9 +4,9 @@ export default (sequelize) => {
 	class Tag extends Model {
 		static associate(models) {
 			this.belongsToMany(models.Project, {
-				through: 'ProjectTag',
+				through: 'ProjectsHasTags',
         as: 'projects',
-        foreignKey: 'project_id'
+        foreignKey: 'projectId',
 			});
 		}
 	}

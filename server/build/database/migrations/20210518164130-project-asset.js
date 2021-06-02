@@ -24,7 +24,7 @@ var _default = {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              queryInterface.createTable(_index["default"].WorkAsset.tableName, _index["default"].Work.attributes);
+              queryInterface.createTable(_index["default"].ProjectAsset.tableName, _index["default"].ProjectAsset.attributes);
 
             case 1:
             case "end":
@@ -46,7 +46,7 @@ var _default = {
         while (1) {
           switch (_context2.prev = _context2.next) {
             case 0:
-              queryInterface.dropTable(_index["default"].WorkAsset.tableName);
+              queryInterface.dropTable(_index["default"].ProjectAsset.tableName);
 
             case 1:
             case "end":

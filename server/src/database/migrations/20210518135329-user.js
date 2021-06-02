@@ -5,10 +5,10 @@ database.connect();
 
 export default {
   up: async (queryInterface, Sequelize) => {
-    queryInterface.createTable(database.User.tableName, database.User.attributes);
+    await queryInterface.createTable(database.User.tableName, database.User.attributes);
   },
 
   down: async (queryInterface, Sequelize) => {
-    queryInterface.dropTable(database.User.tableName);
+    await queryInterface.dropTable(database.User.tableName);
   }
 };

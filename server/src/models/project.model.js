@@ -3,14 +3,16 @@ import { Model, DataTypes } from 'sequelize';
 export default (sequelize) => {
 	class Project extends Model {
 		static associate(models) {
-			this.belongsTo(models.Category);
-			this.hasMany(models.ProjectAsset);
-      this.belongsToMany(models.Tag, {
-				through: 'ProjectTag',
-        as: 'tags',
-        foreignKey: 'tag_id'
+			this.belongsTo(models.Category, { foreignKey: 'categoryId' });
+			this.hasMany(models.ProjectAsset, {
+        as: 'assets',
+        foreignKey: 'projectId',
 			});
-      this.belongsTo(models.User);
+      this.belongsToMany(models.Tag, {
+				through: 'ProjectsHasTags',
+        as: 'tags',
+        foreignKey: 'tagId',
+			});
 		}
 	}
 

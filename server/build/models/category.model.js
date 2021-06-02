@@ -44,7 +44,7 @@ var _default = function _default(sequelize) {
     _createClass(Category, null, [{
       key: "associate",
       value: function associate(models) {
-        this.hasMany(models.Work);
+        this.hasMany(models.Project);
       }
     }]);
 
