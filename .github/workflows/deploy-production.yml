@@ -69,7 +69,7 @@ jobs:
       - name: "Push to heroku"
         shell: "bash"
         run: |
-          git fetch --unshallow --all
+          git fetch --all --unshallow
           git push heroku HEAD:master
       - name: Deploy to Heroku
         uses: akhileshns/heroku-deploy@v3.12.12
