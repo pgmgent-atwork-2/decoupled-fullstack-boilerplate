@@ -1,6 +1,7 @@
 import 'babel-polyfill';
 
 import database from '../index';
+
 database.connect();
 
 export default {
