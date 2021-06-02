@@ -54,3 +54,5 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "the8gency"
           heroku_email: "philippe.depauw@arteveldehs.be"
+          buildpack: "heroku/nodejs",
+          
