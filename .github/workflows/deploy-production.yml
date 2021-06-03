@@ -55,10 +55,8 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "the8gency"
           heroku_email: "philippe.depauw@arteveldehs.be"
-          appdir: "server/build"
-          procfile: "web:node server/build/app.js"
           justlogin: true
-          
+
       - name: "Login to heroku registry"
         run: heroku container:login
 
