@@ -1,0 +1,12 @@
+{
+    "name": "pgm-webshop",
+    "version": "1.0.0",
+    "description": "Webshop of the education programme \"Associate Degree in Computer Programming\"",
+    "engines": {
+        "node": "14.16.1"
+    },
+    "scripts": {
+        "start": "node app.js"
+    }
+  }
+  
