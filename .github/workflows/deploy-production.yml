@@ -71,6 +71,4 @@ jobs:
       - name: "Push to heroku"
         shell: "bash"
         run: |
-          git add .
-          git commit -m "Production version"
           git push heroku main
