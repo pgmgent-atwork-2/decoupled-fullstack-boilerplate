@@ -51,8 +51,8 @@ jobs:
       - name: Move files and directories to root
         shell: bash
         run: |
-          mv ~/server/build/* ~/.
-          rm -rf server
+          mv ./server/build/* ./
+          rm -rf ./server
       - name: Deploy to Heroku
         uses: akhileshns/heroku-deploy@v3.12.12
         with:
