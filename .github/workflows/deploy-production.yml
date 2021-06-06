@@ -53,28 +53,11 @@ jobs:
         run: |
           mv ./server/build/* ./
           rm -rf ./server
-      - uses: actions/checkout@v2
-      - name: "Create .netrc for Heroku Auth"
-        shell: bash
-        run: |
-          `cat >~/.netrc <<EOF
-          machine api.heroku.com
-              login $EMAIL
-              password $HEROKU_API_KEY
-          machine git.heroku.com
-              login $EMAIL
-              password $HEROKU_API_KEY
-          EOF`
-        env:
-          EMAIL: ${{ secrets.HEROKU_EMAIL }}
-          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-      - name: "Add remote"
-        shell: "bash"
-        run: |
-          heroku git:remote -a the8gency
-          heroku config:set NODE_MODULES_CACHE=true -a ${{ secrets.HEROKU_APP_NAME }}
-      - name: "Push to heroku"
-        shell: "bash"
-        run: |
-          git fetch --prune --unshallow
-          git push heroku HEAD:main -f
+      - name: Deploy to Heroku
+        uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: ${{secrets.HEROKU_APP_NAME}}
+          heroku_email: ${{secrets.HEROKU_EMAIL}}
+          remote_branch: "main"
+          dontuseforce: false
