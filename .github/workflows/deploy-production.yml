@@ -70,8 +70,8 @@ jobs:
       - name: "Add remote"
         shell: "bash"
         run: |
-          heroku git:remote --app the8gency
-          heroku config:set NODE_MODULES_CACHE=true -app ${{ secrets.HEROKU_APP_NAME }}
+          heroku git:remote -a the8gency
+          heroku config:set NODE_MODULES_CACHE=true -a ${{ secrets.HEROKU_APP_NAME }}
       - name: "Push to heroku"
         shell: "bash"
         run: |
