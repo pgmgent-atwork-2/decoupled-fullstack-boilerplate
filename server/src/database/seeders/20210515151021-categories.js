@@ -1,10 +1,6 @@
 // import/no-extraneous-dependencies
 import 'babel-polyfill';
 import faker from 'faker';
-<<<<<<< HEAD
-=======
-
->>>>>>> 6706c398877e6e0a1efd2dbb37dc3f4a066ef32f
 import database from '../index';
 
 database.connect();
