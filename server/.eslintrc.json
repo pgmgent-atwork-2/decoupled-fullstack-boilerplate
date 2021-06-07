@@ -35,6 +35,12 @@
             }
         ],
 		"no-tabs": 0,
+        "no-unused-vars": [
+            "error",
+            {
+                "argsIgnorePattern": "Sequelize"
+            }
+        ],
         "no-void": "off",
         "strict": [
             "error", 

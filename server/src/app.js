@@ -144,7 +144,7 @@ if (EnvironmentVariables.NODE_ENV !== 'test') {
   server.listen(EnvironmentVariables.PORT, EnvironmentVariables.HOSTNAME, (err) => {
     if (err) throw err;
     if (EnvironmentVariables.NODE_ENV === 'development') {
-      console.log(`Server is listening at http://${EnvironmentVariables.HOSTNAME}:${EnvironmentVariables.PORT}!`);
+      console.log(`Server is listening at http://${EnvironmentVariables.HOSTNAME}:${EnvironmentVariables.PORT}! Hell yeah it works :)`);
     }
   });
 }

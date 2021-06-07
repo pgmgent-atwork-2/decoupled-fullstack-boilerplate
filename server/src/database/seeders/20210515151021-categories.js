@@ -1,6 +1,10 @@
 // import/no-extraneous-dependencies
 import 'babel-polyfill';
 import faker from 'faker';
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6706c398877e6e0a1efd2dbb37dc3f4a066ef32f
 import database from '../index';
 
 database.connect();
@@ -19,7 +23,7 @@ const getCategories = (n = 20) => {
 };
 
 export default {
-  up: async (queryInterface, _Sequelize) => {
+  up: async (queryInterface, Sequelize) => {
     await queryInterface.bulkInsert(
       database.Category.tableName,
       getCategories(15),
@@ -27,7 +31,7 @@ export default {
     );
   },
 
-  down: async (queryInterface, _Sequelize) => {
+  down: async (queryInterface, Sequelize) => {
     await queryInterface.bulkDelete(database.Category.tableName, null, {});
   },
 };

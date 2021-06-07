@@ -1,6 +1,7 @@
 import 'babel-polyfill';
 
 import database from '../index';
+
 database.connect();
 
 export default {
@@ -11,5 +12,5 @@ export default {
 
   down: async (queryInterface, Sequelize) => {
     await queryInterface.dropTable(database.Category.tableName);
-  }
+  },
 };
